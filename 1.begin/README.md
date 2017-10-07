@@ -30,13 +30,12 @@ bool hasDuplication(const vector<int>& array){
 1. 현실적으로 오차를 생각하기
 2. |a-b|/max(|a|,|b|)로 a,b 상대오차를 구하기
 
-<code><pre>
+<pre><code>
 bool relativeEqual(double a,double b){
 	return fabs(a-b) <= 1e-8 * max(fabs(a),fabs(b));
 }  // 큰 수를 비교할 때는 괜찮지만 작은 숫자들을 비교할때는 문제가 발생
 </code></pre>
-
-<code><pre>
+<pre><code>
 //  정대 오차와 상대오차를 모두 이용
 bool doubleEqual(double a,double b){
 	double diff=fabs(a-b);
@@ -44,6 +43,62 @@ bool doubleEqual(double a,double b){
 	return diff <= 1e-8 * max(fabs(a),fabs(b));
 }
 </code></pre>
+
+
+# 알고리즘 평가
+1. 시간
+2. 공간
+
+이 둘은 서로 상충하는 경우가 많다.
+
+# 알고리즘의 시간 복잡도 분석
+1. 반복문 (for -> n)
+2. 선형 시간 알고리즘
+    * 다이어트 현황 파악: 이동 평균 계산하기 // 모든 자료 훑어봄 (n^2) -> n 
+3. 선형 이하 시간 알고리즘
+    * 성형 전 사진 찾기:이진 탐색(소팅필수) // 절반씩 나누어 (logN)
+    * 소팅후 찾기 했는데 선형 시간이 아니라면 => 다 보지 않을 것이므로 배열을 갖고 있지 않아도 되게 가운데 있는 것에 대해서만 필요할 때 계산(판단)
+4. 지수 시간 알고리즘 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
