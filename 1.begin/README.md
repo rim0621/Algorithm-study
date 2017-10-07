@@ -17,7 +17,7 @@ bool hasDuplication(const vector<int>& array){
 				return true;
 	return false;
 }
-'\
+\'
 별로지만 오타 발생을 줄여준다.
 
 
