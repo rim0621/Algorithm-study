@@ -29,6 +29,8 @@ bool hasDuplication(const vector<int>& array){
 # 실수 크기 비교
     * 현실적으로 오차를 생각하기
     * |a-b|/max(|a|,|b|)로 a,b 상대오차를 구하기
+
+
 <code><pre>
 bool relativeEqual(double a,double b){
 	return fabs(a-b) <= 1e-8 * max(fabs(a),fabs(b));
