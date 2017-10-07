@@ -8,7 +8,7 @@
 
 # 간결한 코드 작성하기
 
---------------------
+\'
 #define FOR(i,n) for(int i=0;i<(n);++i) 
 bool hasDuplication(const vector<int>& array){ 
 	FOR(i,array.size())
@@ -17,7 +17,7 @@ bool hasDuplication(const vector<int>& array){
 				return true;
 	return false;
 }
--------------------------
+'\
 별로지만 오타 발생을 줄여준다.
 
 
