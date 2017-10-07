@@ -29,15 +29,18 @@ bool hasDuplication(const vector<int>& array){
 # 실수 크기 비교
 1. 현실적으로 오차를 생각하기
 2. |a-b|/max(|a|,|b|)로 a,b 상대오차를 구하기
+
 <code><pre>
 bool relativeEqual(double a,double b){
 	return fabs(a-b) <= 1e-8 * max(fabs(a),fabs(b));
 }  // 큰 수를 비교할 때는 괜찮지만 작은 숫자들을 비교할때는 문제가 발생
-------
+</code></pre>
+
+<code><pre>
 //  정대 오차와 상대오차를 모두 이용
 bool doubleEqual(double a,double b){
 	double diff=fabs(a-b);
-	if(diff <' 1e-10) return true;	
+	if(diff '<' 1e-10) return true;	
 	return diff <= 1e-8 * max(fabs(a),fabs(b));
 }
 </code></pre>
