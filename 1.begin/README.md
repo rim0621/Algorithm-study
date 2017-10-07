@@ -8,15 +8,16 @@
 
 # 간결한 코드 작성하기
 
-#define FOR(i,n) for(int i=0;i<(n);++i) <p>
-bool hasDuplication(const vector<int>& array){ <p>
+--------------------
+#define FOR(i,n) for(int i=0;i<(n);++i) 
+bool hasDuplication(const vector<int>& array){ 
 	FOR(i,array.size())
 		FOR(j,i)
 			if(array[i]==array[j])
 				return true;
 	return false;
 }
-
+-------------------------
 별로지만 오타 발생을 줄여준다.
 
 
