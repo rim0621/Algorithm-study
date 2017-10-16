@@ -143,9 +143,9 @@ int main()
 </code></pre>
 ### Hanoi Tower
     * 문제 : 가장 왼쪽에 꽂혀있는 모든 원판을 가장 오른쪽 기둥으로 옮긴다.
-        - 한번에 한개의 원판만 옮김
-        - 한개의 원판을 옮길 때는 어떤 기둥에 꽂혀있는 원판의 가장 위에 놓여져 있는 원판을 다른 기둥에 꽂혀있는 원판의 가장 위에 놓는다.
-        - 크기가 큰 원판이 작은 원판 위에 놓여져서는 안된다.
+       - 한번에 한개의 원판만 옮김
+       - 한개의 원판을 옮길 때는 어떤 기둥에 꽂혀있는 원판의 가장 위에 놓여져 있는 원판을 다른 기둥에 꽂혀있는 원판의 가장 위에 놓는다.
+       - 크기가 큰 원판이 작은 원판 위에 놓여져서는 안된다.
 <pre><code>
 
 
@@ -159,46 +159,47 @@ using namespace std;
 
 void floodFill(char fig[][SIZE+1],int x,int y, char oldColor, char newColor)
 {
-        if(fig[x][y]!=oldColor)
-                return ;
-        else
-        {
-                fig[x][y]=newColor;
-                //왼,오른,아래,위
-                floodFill(fig, x-1,y,oldColor,newColor);
-                floodFill(fig, x+1,y,oldColor,newColor);
-                floodFill(fig, x,y-1,oldColor,newColor);
-                floodFill(fig, x,y+1,oldColor,newColor);
-        }
+       if(fig[x][y]!=oldColor)
+ 	       return ;
+       else
+       {
+	            fig[x][y]=newColor;
+	            //왼,오른,아래,위
+	            floodFill(fig, x-1,y,oldColor,newColor);
+	            floodFill(fig, x+1,y,oldColor,newColor);
+	            floodFill(fig, x,y-1,oldColor,newColor);	
+	            floodFill(fig, x,y+1,oldColor,newColor);
+       }
 }
 
 int main()
 {
-        //why y is +1 ???
-        char fig[][SIZE+1]={
+       //why y is +1 ???
+       char fig[][SIZE+1]={
 "*********", "*...*...*", "*...*...*","*..*....*", "***...***",
 "*....*..*","*...*...*", "*..*....*", "*********"};
 
 
-        for(int i=0;i<SIZE;i++)
-        {
-                for(int j=0;j<SIZE;j++)
-                {
-                        cout<<fig[i][j]<<" ";
-                }
-                cout<<endl;
-        }
-        floodFill(fig,4,4,'.','+');
-        cout<<endl;
-        for(int i=0;i<SIZE;i++)
-        {
-                for(int j=0;j<SIZE;j++)
-                {
-                        cout<<fig[i][j]<<" ";
-                }
-                cout<<endl;
-        }
+       for(int i=0;i'<'SIZE;i++)
+       {
+         	for(int j=0;j'<'SIZE;j++)
+          	{
+		  printf("%c ",fig[i][j]);
+         	    	
+        	}
+               	  printf("\n");
+       }
+       floodFill(fig,4,4,'.','+');
 
+       for(int i=0;i'<'SIZE;i++)
+       {
+         	for(int j=0;j'<'SIZE;j++)
+          	{
+		  printf("%c ",fig[i][j]);
+         	    	
+        	}
+               	  printf("\n");
+       }
 
 
 }
