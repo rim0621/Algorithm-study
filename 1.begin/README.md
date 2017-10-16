@@ -52,7 +52,68 @@ bool doubleEqual(double a,double b){
 이 둘은 서로 상충하는 경우가 많다.
 
 # 알고리즘의 시간 복잡도 분석
-1. 반복문 (for -> n)
+1. 분석
+    * 방법1 : 모든 primitive operation(assignment,array indexing, 덧셉,곱,함수호출등)횟수를 계산
+    * 방법2 : 핵심적인 연산만 계산
+<pre><code>
+void insertionSort(int a[], int n)	// 앞에정렬되있으면 자기 위치로 찾아감(앞은 정렬되있고 뒤에몇개만 소팅이 필요할때  유리)
+{
+  int i, j, value;
+  for(i=1; i'<'n; i++)	
+  {
+    value = a[i];
+    for(j=i-1; j>=0; j--)
+      if (a[j] > value)
+       	a[j+1] = a[j];
+      else
+       	break;
+   a[j+1] = value;
+  }
+}
+</code></pre>
+    * Primitive operation T(n) : 4n^2+5n-8 (=, <, ++, [],-, > +, --) = O(n^2)
+	for(i=1;	1	1
+	i'<'n; i++)	2	2(n-1)
+	value=a[i];	2	2(n-1)
+	for(j=i-1;	2	2(n-1)
+	j>=0;j--	2	n(n-1)
+	if(a[j]>value)	2	n(n-1)
+	a[j+1]=a[j]	4	2n(n-1)
+	a[j+1]=value	3	3(n-1)
+    * basic operation T(n) : 0.5n^2-0.5n = O(n^2)
+<pre><code>
+void bubbleSort(int a[], int n)	// 인접 두개 비교 
+{
+   int i, j, tmp;
+   for(i=0; i'<'n; i++)
+     for(j=0; j'<'n-1; j++)
+       if (a[j] > a[j+1]) 	//핵심 -> T(n) = n*(n-1)
+       {
+       		tmp = a[j];
+	        a[j] = a[j+1];
+ 		a[j+1] = a[j];
+	}
+}
+</code></pre>
+<pre><code>
+void selectionSort(int a[], int n)	//뽑은 수를 가장 작은 것과 바꿈
+{
+	int i, j, min, tmp;
+	for(i=0; i'<'n-1; i++)
+	{
+ 		min = i;
+	 	for(j=i+1; j<n; j++)
+		    if (a[j] < a[min]) //핵심 T(n) = (n-1)*n / 2
+			 min = j;
+	 	if (i != min)
+	 	{
+		 	tmp = a[i];
+		 	a[i] = a[min];
+		 	a[min] = tmp;
+	 	}
+	}
+}
+</code></pre>
 2. 선형 시간 알고리즘
     * 다이어트 현황 파악: 이동 평균 계산하기 // 모든 자료 훑어봄 (n^2) -> n 바꾸기
 3. 선형 이하 시간 알고리즘
@@ -61,7 +122,9 @@ bool doubleEqual(double a,double b){
 4. 지수 시간 알고리즘 
 
 
-
+# 해결 알고리즘
+1. working backward (역방향 추론) - 무게추를 천칭에 다 올리고 내리면서 해결함..
+2. backward induction (후진 귀납법)
 
 
 

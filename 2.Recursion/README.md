@@ -47,6 +47,9 @@ void reverseArray(int a[],int i, int j)
 	
 }
 </code></pre>
+### Computing Powers
+<pre><code>
+</code></pre>
 ### 최대 공약수 (유클리드 호제법)
 <pre><code>
  
@@ -62,7 +65,6 @@ int gcd(int a,int b)
 </pre></code>
 ### string reversal
 <pre><code>
-
 // str[]="StrReversal";
 void printReversal(char str[],int index)	//void는 baseCase가 없어도 되나보나(?)
 {
@@ -200,6 +202,18 @@ int main()
 </code></pre>
 ### Knight's Tour Problem
     * 문제 : 기사(말) 이 임의의 위치에 놓여졌는데 모든 64개의 격자를 방문하도록(방문한곳은 NO)
+<pre><code>
+</code></pre>
+### Binary Tree
+<pre><code>
+</code></pre>
+### Binary Tree with Weight
+<pre><code>
+</code></pre>
+
+
+
+
 
 
 
