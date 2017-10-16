@@ -46,7 +46,7 @@ void reverseArray(int a[],int i, int j)
 	
 	
 }
-</code><pre>
+</code></pre>
 ### 최대 공약수 (유클리드 호제법)
 <pre><code>
  
@@ -92,12 +92,24 @@ main()
 }
 </code></pre>
 ### Recursive Insertion Sorting
+    * 0 1 3 5 7 8 / 2 4 (정렬됨/아직정렬안됨)
+    * 2를 1과 3 사이.. 4를 3과 5 사이로 삽입!
 <pre><code>
 
 
 </code></pre>
-
-
+### permutation 
+    * n 개의 서로 다른 문자로 만들어진 스트링이 주어졌을 때, 이문자열에 속하는 문자들의 모든 순열
+    - "abc"
+        -abc
+		-abc
+		-acb //뒤에서 두개 스왑
+        -bac
+		-bac
+		-bca
+        -cba
+		-cba
+		-cab
 
 
 
