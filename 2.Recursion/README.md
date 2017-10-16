@@ -1,4 +1,4 @@
-# Recursion
+# Recursion 
 1. base case : 함수의 값을 직접 계산할 수 있는 단순한 경우(적어도 한 개 이상의 base case가 있어야 함)
 2. recursive step : base case가 될 때까지 계속 환산해 나가면서 계산(스택 오버플로우 발생)
 3. type of recursion
