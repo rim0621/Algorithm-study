@@ -81,7 +81,7 @@ void insertionSort(int a[], int n)	// 앞에정렬되있으면 자기 위치로 
 	a[j+1]=a[j]	4	2n(n-1)
 	a[j+1]=value	3	3(n-1)
     * basic operation T(n) : 0.5n^2-0.5n = O(n^2)
-<pre><code>
+<pre></code>
 void bubbleSort(int a[], int n)	// 인접 두개 비교 
 {
    int i, j, tmp;
@@ -102,8 +102,8 @@ void selectionSort(int a[], int n)	//뽑은 수를 가장 작은 것과 바꿈
 	for(i=0; i'<'n-1; i++)
 	{
  		min = i;
-	 	for(j=i+1; j<n; j++)
-		    if (a[j] < a[min]) //핵심 T(n) = (n-1)*n / 2
+	 	for(j=i+1; j'<'n; j++)
+		    if (a[j] '<' a[min]) //핵심 T(n) = (n-1)*n / 2
 			 min = j;
 	 	if (i != min)
 	 	{
@@ -126,8 +126,91 @@ void selectionSort(int a[], int n)	//뽑은 수를 가장 작은 것과 바꿈
 1. working backward (역방향 추론) - 무게추를 천칭에 다 올리고 내리면서 해결함..
 2. backward induction (후진 귀납법)
 
+# Maximum Contiguous Subsequence Sum
+- n개의 정수 a1~an이 주어졌을 때, 연속적인 부분수열의 합이 최대가 되는 구간과 그 구간의 합을 계산하시오.
+<pre><code>
+// 5 -7 2 3 -4 5 2 -7 8 -7
+int maxSubsequenceSum(int a[], int n, int *start, int *end)
+{
+	int i,j,k;
+	int maxSum=0;
+	*start=*end=0;
+	for(i=0;i'<'n;i++)
+	{
+	  for(j=i;j'<'n;j++)
+	  {
+		 int thisSum=0;
+		 for(k=i;k<=j;k++)
+		 {
+			 thisSum+=a[k]; //5, -7+5, 5-7+2...... i가 1일 땐 -7,-7+2.....쭉(max연산 하고 다시 더하는거)
+		 }
+		 if(thisSum>maxSum)
+		 {
+			 maxSum=thisSum;
+			 *start=i;
+			 *end=j;
+		 }
+	  }
+	}
+	return maxSum;
+}
+/* O(n^3)*/
+</code></pre>
+<pre><code>
+// 5 -7 2 3 -4 5 2 -7 8 -7
+int maxSubsequenceSum(int a[], int n, int *start, int *end)
+{
+	int i,j;
+	int maxSum=0;
+	*start=*end=0;
+	for(i=0;i'<'n;i++)
+	{
+	  int thisSum=0;
+	  for(j=i;j'<'n;j++)
+	  {
 
-
+   		 thisSum+=a[j]; //5, -7+5, 5-7+2...... i가 1일 땐 -7,-7+2.....쭉(max연산하고 거기에다가 더하는거)
+		 
+		 if(thisSum>maxSum)
+		 {
+			 maxSum=thisSum;
+			 *start=i;
+			 *end=j;
+		 }
+	  }
+	}
+	return maxSum;
+}
+/* O(n^2)*/
+</code></pre>
+<pre><code>
+// 5 -7 2 3 -4 5 2 -7 8 -7
+// 음수가 되는 곳 다음을 처음으로 잡고!!!!!
+int maxSubsequenceSum(int a[], int n, int *start, int *end)
+{
+	int i,j,k;
+	int maxSum=0,thisSum=0;
+	*start=*end=0;
+	for(i=0,j=0;i'<'n;i++)
+	{
+		 thisSum+=a[j];
+		 if(thisSum>maxSum)
+		 {
+			 maxSum=thisSum;
+			 *start=i;
+			 *end=j;
+		 }
+		 else if(thisSum'<'0)	//합이 음수가 되면 앞에꺼는 더하면 손해니깐 버림!
+		 {
+			 i=j+1;
+			 thisSum=0;
+		 }
+	  
+	}
+	return maxSum;
+}
+/* O(n)*/
+</code></pre>
 
 
 
