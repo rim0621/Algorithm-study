@@ -48,7 +48,28 @@ void reverseArray(int a[],int i, int j)
 }
 </code></pre>
 ### Computing Powers
+* 16 = 2^4 = 2^2^2 = (2^2)^2
+* 256 = 2^8 = 2^2^3 = (((2^2)^2)^2)
+    - n=0		1
+    - n>0 is odd	x*p(x,(n-1)/2)^2
+    - n>0 is even	p(x,n/2)^2
 <pre><code>
+double p(double x,int n)
+{
+	double y;
+	if(n==0)
+		 return 1.0;
+	else if(n%2==1)
+	{
+		 y=p(x,(n-1)/2);
+		 return x*y*y;
+	}
+	else 
+	{
+		 y=p(x,n/2);
+		 return y*y;
+  	}
+}
 </code></pre>
 ### 최대 공약수 (유클리드 호제법)
 <pre><code>
@@ -146,7 +167,27 @@ int main()
        - 한번에 한개의 원판만 옮김
        - 한개의 원판을 옮길 때는 어떤 기둥에 꽂혀있는 원판의 가장 위에 놓여져 있는 원판을 다른 기둥에 꽂혀있는 원판의 가장 위에 놓는다.
        - 크기가 큰 원판이 작은 원판 위에 놓여져서는 안된다.
+    * 해결 
+      - 1번 기둥에 쌓여져있는 n-1개의 원판을 모두 2번 기둥으로 옮긴다.
+      -	1번 기중에 남아 있는 가장 큰 원판을 3번기둥으로 옮긴다.
+      - 2번 기중으로 옮겨진 n-1개의 원판을 모두 3번으로 옮긴다.(리컬)
 <pre><code>
+void Hanoi(int n, int a, int b, int c)
+{
+	if(n>0)
+	{
+ 		Hanoi(n-1,a,c,b);	
+ 		printf("move from %d to %d\n",a,c);
+ 		Hanoi(n-1,b,a,c);
+	}
+}
+
+int main()
+{
+	int numDisks=5;
+	Hanoi(numDisks,1,2,3);
+
+}
 </code></pre>
 ### Flood Fill
     * 문제 : 연속적인 범위를 마우스 클릭하면 같은 색으로 채우기
@@ -206,9 +247,160 @@ int main()
 </code></pre>
 ### Binary Tree
 <pre><code>
+
+struct node{
+  char data;
+  struct node* left;
+  struct node* right;
+};
+
+node* createNode(char data)
+{
+  node *n=(node *)malloc(sizeof(node));
+  n->left=NULL;
+  n->right=NULL;
+
+  n->data=data;
+
+  return n;
+}
+
+void inOrder( node* root)
+{
+  if(root==NULL)
+  {
+     return ;
+  }
+  else
+  {
+    inOrder(root->left);
+    printf("%c ",root->data);
+    inOrder(root->right);
+  }
+}
+void preOrder(node* root)
+{
+  if(root==NULL)
+  {
+    return ;
+  }
+  else
+  {
+    printf("%c ",root->data);
+    preOrder(root->left);
+    preOrder(root->right);
+  }
+}
+void postOrder(node* root)
+{
+  if(root==NULL)
+  {
+    return ;
+  }
+  else
+  {
+    postOrder(root->left);
+    postOrder(root->right);
+    printf("%c",root->data);
+  }
+}
+int size(node *root)
+{
+	if(root==NULL)
+		 return 0;
+	else
+		 return (size(root->left) +1 +size(root->right));
+}
+int max(int a, int b)
+{
+  if(a>b)
+	return a;
+  else
+	return b;
+}
+int height(node *root)
+{
+       if(root==NULL) 
+	{
+	 	return -1; //처음노드가 0이므로.. -1 로 하나 빼준다.
+	}
+	else
+	{
+       		return max(height(root->left),height(root->right))+1;		
+	}
+}
+
+
+void mirror( node* root) {
+  if (root==NULL) {
+    return;
+  }
+  else {
+    struct node* temp;
+
+    // 밑으로 간다!
+    mirror(root->left); 
+    mirror(root->right); 
+
+    // swap 
+    printf("swap %c \n",root->data);
+    temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+  }
+}
+
+int main()
+{
+	node *root=createNode('a');
+	root->left = createNode('b');
+	root->right = createNode('c');
+	root->left->left=createNode('d');
+	root->left->left->right=createNode('g');
+	root->right->right=createNode('f');
+	root->right->left=createNode('e');
+	printf("size = %d\n",size(root));
+	printf("height= %d\n",height(root));
+	preOrder(root);
+	printf("\n");
+	mirror(root);
+	preOrder(root);
+	printf("\n");
+}
 </code></pre>
 ### Binary Tree with Weight
 <pre><code>
+
+struct node{
+	int weight;
+	struct node* left;
+	struct node* right;
+}
+
+int sumOfWeight(struct node *root)
+{
+	if(root==NULL)
+	{
+		 return 0;
+	}
+	else
+	{
+		 return sumOfWeight(root->left)+sumOfweight(root->right)+root->weight;
+	}
+}
+int maxPathWeight(struct node *root)
+{
+	if(root==NULL)
+		 return 0;
+	else
+	{
+		 int leftWeight,rightWeight;
+		 leftWeight=root->wegiht+maxPathWeight(root->left);
+		 rightWeight=root->wegiht+maxPathWeight(root->right);
+		 return max(leftWeight,rightWeight);
+	}
+}
+
 </code></pre>
 
 
