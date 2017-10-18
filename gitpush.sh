@@ -8,6 +8,6 @@ echo $id
 git commit -m  $content
 git push -u origin master
 read $a
-if[$a -eq Username for 'https://github.com'];
+if[$a -eq Username for 'https://github.com']
 then
 echo "rim0621"
