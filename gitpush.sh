@@ -7,5 +7,4 @@ echo $id
 
 git commit -m  $content
 git push -u origin master
-echo -e "rim0621"
-
+expect "userID:" {send "rim0621\r"}
