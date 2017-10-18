@@ -6,7 +6,5 @@ echo $content
 echo $id
 
 git commit -m  $content
-git push -u origin master $1 << END
-		rim0621
-END
+git push -u origin master >> $id
 
