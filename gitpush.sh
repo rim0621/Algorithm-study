@@ -6,5 +6,5 @@ echo $content
 echo $id
 
 git commit -m  $content
-read a |  git push -u origin master
+git push -u origin master | $id
 
