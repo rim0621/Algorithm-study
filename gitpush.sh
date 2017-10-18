@@ -6,6 +6,6 @@ echo $content
 echo $id
 
 git commit -m  $content
-echo "rrrr" | git push -u origin master
+echo "rrrr" | git -KS push -u origin master
 
 
