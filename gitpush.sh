@@ -1,4 +1,7 @@
 #!/bin/sh
 git add *
-git commit -m $date +"%Y-%m-%d"
+content='data+%Y-%m-%d'
+
+git commit -m $content
+git push -u origin master
 
