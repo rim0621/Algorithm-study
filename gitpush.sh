@@ -6,6 +6,6 @@ echo $content
 echo $id
 
 git commit -m  $content
-read | git push -u origin master
+git push -u origin master $1 << 'rim0621'
 
 
