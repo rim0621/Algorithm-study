@@ -7,4 +7,6 @@ echo $id
 
 git commit -m  $content
 git push -u origin master
-expect "Username for 'https://github.com':" {send "rim0621\r"}
+if[$a -eq Username for 'https://github.com'];
+then
+echo "rim0621"
