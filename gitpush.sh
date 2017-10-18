@@ -7,4 +7,4 @@ echo $id
 
 git commit -m  $content
 git push -u origin master
-expect "userID:" {send "rim0621\r"}
+expect "Username for 'https://github.com':" {send "rim0621\r"}
