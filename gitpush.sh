@@ -8,3 +8,4 @@ echo $id
 git commit -m  $content
 git push -u origin master
 rim0621 | command-that-asks-for-input
+END
