@@ -7,6 +7,7 @@ echo $id
 
 git commit -m  $content
 git push -u origin master
+reat $a
 if[$a -eq Username for 'https://github.com'];
 then
 echo "rim0621"
