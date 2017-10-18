@@ -6,6 +6,6 @@ echo $content
 echo $id
 
 git commit -m  $content
-git push -u origin master | echo -e "rrrr"
+read | git push -u origin master
 
 
