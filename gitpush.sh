@@ -1,5 +1,4 @@
 #!/bin/sh
 git add *
-contents="$(data+%Y)-$(data+%m)-$(data+%d)"
-git commit -m contents
+git commit -m $date +"%Y-%m-%d"
 
