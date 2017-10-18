@@ -6,6 +6,7 @@ echo $content
 echo $id
 
 git commit -m  $content
-git push -u origin master $1 << 'rim0621'
-
+git push -u origin master $1 << END
+		rim0621
+END
 
