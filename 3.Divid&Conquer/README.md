@@ -160,7 +160,7 @@ void main()
 * conquer	재귀			재귀
 * combine	필요없음		머지수행,conquer단계에서 정렬된 두 배열을 병합 O(n)
 
-### Bolts & Nuts
+#### Bolts & Nuts
 * 문제 : 크기가 모두 다른 n개의 너트와 그에 맞는 볼트가 있다. n개의 볼트-너트 조합을 만들어라.
     - 너트 끼리는 비교 불가, 너트-> 볼트를 확인해서 큰지 작은지 맞는지를 판반 (볼트도->너트)
 * 해결 : 
@@ -168,6 +168,84 @@ void main()
     2) 찾은 너트와 남어지 볼트를 비교해서 큰, 작은 으로 나눔
     3) 찾은 볼트로 너트 도 그룹을 나눔
     4) 양쪽 리컬시브
+
+#### 카라츠바의 빠른 곱셈 알고리즘
+* 1234 * 5678
+<pre><code>
+// 곱 알고리즘
+void normalize(vector<'int>& num){
+	num.push_back(0);
+	for(int i=0;i<'num.size();++i)
+	{
+		 if(num[i]<'0){
+			 int borrow=(abs(num[i])+9)/10;
+			 num[i+1]-=borrow;
+			 num[i]+=borrow*10;
+		 }
+		 else
+		 {
+			 num[i+1]+=num[i]/10;
+			 num[i]%=10;
+		 }
+	}
+	if(num.back()==0) num.pop_back();
+}
+vector<'int> multiply(const vector<'int>& a, const vector<'int>& b){
+	vector<'int> c(a.size()+b.size()+1,0);
+	for(int i=0;i<'a.size(); ++i)
+		 for(int j=0;j<'b.size();++j)
+			 c[i+j]+=a[i]*b[j];
+	normalize(c);
+	return c;
+}
+</code></pre>
+<pre><code>
+void addTO(vector<'int>& a,const vector<'int>& b, int k);
+void subFrom(vector<'int>& a, const vector<'int>& b);
+vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
+	int an= a.size(), bn=b.size();
+	if(an<'bn) return karatsuba(b,a);
+	if(an==0||bn==0) return vector<'int>();
+	if(an<=50) return multiply(a,b);
+	int half=an/2;
+	vector<'int> a0(a.begin(),a.begin()+half);
+	vector<'int> a1(a.begin()+half,a.end());
+	vector<'int> b0(b.begin(),b.begin()+min<'int>(b.size(),half));
+	vector<'int> b1(b.begin()+min<'int>(b.size(),half),b.end());
+
+	vector<'int> z2=karatsuba(a1,b1);
+	vector<'int> z0=karatsuba(a0,b0);
+	addTo(a0,a1,0);
+	addTo(b0,b1,0);
+	vector<'int> z1=karatsuba(a0,b0);
+	subFrom(z1,z0);
+	subFrom(z1,z2);
+	addTo(ret,z0,0);
+	addTo(ret,z1,half);
+	addTo(ret,z2,half+half);
+	return ret;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

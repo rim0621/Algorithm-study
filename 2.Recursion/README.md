@@ -416,7 +416,26 @@ int maxPathWeight(struct node *root)
 1. n개의 도시를 모두 방문하는 경로중 가장 짧은 것
     * 0부터 시작해면 n-1개를 방문할수있는 경우의 수는 (n-1)!
 <pre><code>
+int n;
+double dist[MAX][MAX];
 
+double shortestPath(vector<'int>& path, vector<'bool>& visited, double currentLength){
+	if(path.size()==n)
+		 return currentLength + dist[path[0]][path.back()];
+	double ret=INF;
+	for(int next=0;next'<'n;++next)
+	{
+		 if(visited[next]) continue;
+		 int here=path.back();	
+		 path.push_back(next);
+		 visited[next]=true;
+		 double cand = shortestPath(path,visited,currentLength+dist[here][next]);
+		 ret=min(ret,cand);
+		 visited[next]=false;
+		 path.pop_back();
+	}
+	return ret;
+}
 </code></pre>
 
 
