@@ -226,12 +226,16 @@ vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
 	return ret;
 }
 </code></pre>
+#### qaudtreeMirror.cpp  - ????
+* 베이스 케이스 :  w,b 이면 칠하고 종료
+	       : x 이면 decompress로 나눔(재귀)
 
-
-
-
-
-
+#### fence.cpp
+* 문제 : 버리는 울타리에서 잘라낼 수 있는 많은 직사각형 중 가장 넓은 직사각형(높이는 주어지고, 너비는1)
+    .
+.   . .  여기
+.   . .	여기	=> 6
+. . . .  여기
 
 
 
