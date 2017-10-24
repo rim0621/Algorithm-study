@@ -201,7 +201,7 @@ vector<'int> multiply(const vector<'int>& a, const vector<'int>& b){
 </code></pre>
 <pre><code>
 void addTO(vector<'int>& a,const vector<'int>& b, int k);
-void subFrom(vector<'int>& a, const vector<'int>& b);
+void subFrom(vector<'int>& a, const vector<'int>& b)
 vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
 	int an= a.size(), bn=b.size();
 	if(an<'bn) return karatsuba(b,a);
@@ -232,12 +232,18 @@ vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
 
 #### fence.cpp
 * 문제 : 버리는 울타리에서 잘라낼 수 있는 많은 직사각형 중 가장 넓은 직사각형(높이는 주어지고, 너비는1)
-    .
-.   . .  여기
-.   . .	여기	=> 6
-. . . .  여기
+* 풀이 : 전체를 다 구하면 시간초과가 뜨므로 = > 분할정복
+	- 가장 큰 직사각형을 왼쪽 부분 문제에서만 잘라낼 수 있다.
+	- 가장 큰 직사각형을 오른쪽 부분 문제에서만 잘라낼 수 있다.
+	- 가장 큰 직사각형은 왼쪽 부분 문제와 오른쪽 부분 문제에 걸쳐 있다.
+	1) 분할정복으로 나누어나감
+	2) 옆두개를 비교해서 높이가 작은 걸 구한 후 넓이
+	3) 그 다음 옆 두개를 비교해서 높이가 작은 걸 구함(반복)
 
-
+#### fanMeeting.cpp
+* 문제 : 모두다 포옹한 횟수. 남-남은 악수로
+* 풀이 : (1.큐를 사용)
+	 2. 곱샘처럼.. 여자 0 남자 1 하면 남-남 일떄만 1 나머지는 0 이 나옴
 
 
 

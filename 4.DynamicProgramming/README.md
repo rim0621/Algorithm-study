@@ -89,14 +89,45 @@ void reconstruct(int change, int lastCoin[])
 	if(change>0)
 	{
 		 reconstruct(change-lastCoin[change],lastCoin);
-		 printf("%d ", lastCoin[change]);
+	 	 printf("%d ", lastCoin[change]);
 	}
 }
 </code></pre>
 
-
-
-
+# 메모이제이션
+* 입력이 고정되어 있을 때 그 결과가 항상 같을 (참조적 투명성) 때 만 가능.
+1. 기저 사례를 제일 먼저 처리.
+2. 반환값을 잘 생각하여 초기화.
+* 시간 복잡도 분석
+	- 존재하는 부분 문제의수 * 한 부분 문제를 풀 때 필요한 반복문의 수행 횟수
+# 동적 계획법 레시피
+1. 주어진 문제를 완전 탐색을 이용
+2. 중복된 부분 문제를 한번만 계산하도록 메모이제이션을 사용
+<pre><code>
+//외발 뛰기 완전탐색
+int n,board[100][100];
+bool jump(int y,int x)
+{
+	if(y>=n || x>n) return false; // over board
+	if(y==n-1 && x==n-1) return true;
+	int jumpSize=board[y][x];
+	return jump(y+jumpSize,x) || jump(y,x+jumpSize);
+}
+</code></pre>
+<pre><code>
+// 동적 계획법으로
+int n,board[100][100];
+int cache[100][100];
+int jump2(int y,int x)
+{
+	if(y>=n || x>n) return 0; // over board
+	if(y==n-1 && x==n-1) return 1;
+	int& ret=cache[y][x]; //ret 은 cache[y][x]의 참조형, ret의 값이 바뀌면 cache도 바뀜!!!!
+	if(ret!=-1) return ret;
+	int jumpSize=board[y][x];
+	return ret=(jump(y+jumpSize,x) || jump(y,x+jumpSize));
+}
+</code></pre>
 
 
 
