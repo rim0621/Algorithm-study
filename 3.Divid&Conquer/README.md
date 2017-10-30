@@ -171,8 +171,10 @@ void main()
 
 #### 카라츠바의 빠른 곱셈 알고리즘
 * 1234 * 5678
+
 <pre><code>
 // 곱 알고리즘
+
 void normalize(vector<'int>& num){
 	num.push_back(0);
 	for(int i=0;i<'num.size();++i)
@@ -200,6 +202,17 @@ vector<'int> multiply(const vector<'int>& a, const vector<'int>& b){
 }
 </code></pre>
 <pre><code>
+
+B = 10 이라하고, m = 2 라 하자. 1234와 5678의 곱을 구하고 싶으면,
+
+12 34 = 12 × 102 + 34
+56 78 = 56 × 102 + 78
+z2 = 12 × 56 = 672
+z0 = 34 × 78 = 2652
+z1 = (12 + 34)(56 + 78) − z2 − z0 = 46 × 134 − 672 − 2652 = 2840
+결과 = z2 × 102×2 + z1 × 102 + z0 = 672 × 10000 + 2840 × 100 + 2652 = 7006652
+
+
 void addTO(vector<'int>& a,const vector<'int>& b, int k);
 void subFrom(vector<'int>& a, const vector<'int>& b)
 vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){

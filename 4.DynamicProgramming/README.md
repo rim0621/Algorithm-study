@@ -121,7 +121,7 @@ int cache[100][100];
 int jump2(int y,int x)
 {
 	if(y>=n || x>n) return 0; // over board
-	if(y==n-1 && x==n-1) return 1;
+	if(y==n-1 && x==n-1) return 1; //도달
 	int& ret=cache[y][x]; //ret 은 cache[y][x]의 참조형, ret의 값이 바뀌면 cache도 바뀜!!!!
 	if(ret!=-1) return ret;
 	int jumpSize=board[y][x];
@@ -129,6 +129,10 @@ int jump2(int y,int x)
 }
 </code></pre>
 
+#### 와일드카드 Wildcard.cpp , WildcardDynamic.cpp 
+* 문제
+	- *=0글자 이상의 어떤 문자열에도 대응
+	- ?=한 글자만 대응
 
 
 
