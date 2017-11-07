@@ -104,15 +104,15 @@ void reconstruct(int change, int lastCoin[])
 ### LCS 
 * Longest Common Subsequence 재귀
 	- L(m,n) =
-		 	0 			(n=0 or m=0)
-	 		L(m-1,n-1)+1		(m,n>0 and sm=tn)
-	 		max(L(m,n-1),L(m-1,n))	(m,n>0 and sm!=tn)
+		 - 0 			(n=0 or m=0)
+	 	 - L(m-1,n-1)+1		(m,n>0 and sm=tn)
+	 	 - max(L(m,n-1),L(m-1,n))	(m,n>0 and sm!=tn)
 
 ### 연쇄행렬 최소곱셈 알고리즘
 * 재귀
 	- M(i,j) =
-	 		min(M(i,k)+M(k+1,j)+di-1,dk,dj)	if(1<=i<'j<=m)
-	 		0				if(i=j)
+	 	- min(M(i,k)+M(k+1,j)+di-1,dk,dj)	if(1<=i<'j<=m)
+	 	- 0				if(i=j)
 # 메모이제이션
 * 입력이 고정되어 있을 때 그 결과가 항상 같을 (참조적 투명성) 때 만 가능.
 1. 기저 사례를 제일 먼저 처리.
