@@ -48,7 +48,7 @@ int fib(int n)
       - 63-25 = 38
     * 2 단계 : 재귀식 (1은 동전의 개수?)
       - c(63)=min(c(63-1)+1,c(63-5)+1,c(63-10)+1...) =min(c(63-1),c(63-5),c(63-10)...)+1
-      - <span style="color:red;"> c(k)=min(k-ci)+1</span>
+      - c(k)=min(k-ci)+1
     * 3 단계 : 최소동전의 개수 계산
       - s[k] : 최소 개수의 거스름돈 동전을 계산하기 위하여 c[k] 를 계산 할 때, 최소값으로 선택된 동전ci를 저장
       - c[k] : k 원을 바꿀 때, 최소 동전의 개수 저장
@@ -93,7 +93,26 @@ void reconstruct(int change, int lastCoin[])
 	}
 }
 </code></pre>
+### 동전교환-2
+* 재귀:
+	- 0 n=0 and k>0
+	- 1 k=0
+	- 0 k<'0
+	- N[n-1][k]+N[n][k-cn]
 
+
+### LCS 
+* Longest Common Subsequence 재귀
+	- L(m,n) =
+		 	0 			(n=0 or m=0)
+	 		L(m-1,n-1)+1		(m,n>0 and sm=tn)
+	 		max(L(m,n-1),L(m-1,n))	(m,n>0 and sm!=tn)
+
+### 연쇄행렬 최소곱셈 알고리즘
+* 재귀
+	- M(i,j) =
+	 		min(M(i,k)+M(k+1,j)+di-1,dk,dj)	if(1<=i<'j<=m)
+	 		0				if(i=j)
 # 메모이제이션
 * 입력이 고정되어 있을 때 그 결과가 항상 같을 (참조적 투명성) 때 만 가능.
 1. 기저 사례를 제일 먼저 처리.
