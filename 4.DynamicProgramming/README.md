@@ -48,7 +48,7 @@ int fib(int n)
       - 63-25 = 38
     * 2 단계 : 재귀식 (1은 동전의 개수?)
       - c(63)=min(c(63-1)+1,c(63-5)+1,c(63-10)+1...) =min(c(63-1),c(63-5),c(63-10)...)+1
-      - c(k)=min(k-ci)+1
+      -<span style="color:red"> c(k)=min(k-ci)+1</span>
     * 3 단계 : 최소동전의 개수 계산
       - s[k] : 최소 개수의 거스름돈 동전을 계산하기 위하여 c[k] 를 계산 할 때, 최소값으로 선택된 동전ci를 저장
       - c[k] : k 원을 바꿀 때, 최소 동전의 개수 저장
@@ -133,8 +133,46 @@ int jump2(int y,int x)
 * 문제
 	- *=0글자 이상의 어떤 문자열에도 대응
 	- ?=한 글자만 대응
+## 최적문제
+* 직관적이지 않은 경우에는 대개 귀류법 혹은 대우를 이용하여 증명한다.
+#### 최대 증가 부분 수열
+* 완전 탐색 방법 : 숫자 하나씩으로 조각낸 뒤, 한 조각에서 숫자 하나씩을 선택하는 완전 탐색. 길이구하기 -> 집합의 증가 부분 수열을 만든 뒤 가장 긴것 반환.
+<pre><code>
+int lis(const vector<'int>& A)
+	if(A.empty()) return 0;
+	int ret=0;
+	for(int i=0; i<'A.size();++i)
+	{
+		 vector<'int> B;
+		 for(int j=i+1;j<'A.size();++j)
+		 {
+		 	if(A[i]<'A[j])
+		 	{
+		 		B.push_back(A[j]);
+		 	}	
+		 }
+		 ret=max(ret,1+lis(B));
+	}
+	return ret;
 
-
+</code></pre>
+* 동적계획법
+<pre><code>
+int n;
+int cache[100],S[100];
+int lis2(int start){
+	int& ret = cache[start];
+	if(ret!=-1)return ret;
+	
+	ret=1;
+	for(int next=start+1; next<'n;++next)
+	{
+		 if(S[start]<'S[next])
+		 	ret=max(ret,lis2(next)+1);
+	}
+	return ret;
+//236
+</code></pre>
 
 
 
