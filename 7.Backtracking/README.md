@@ -18,7 +18,7 @@ if(col[row]==col[k] || abs(col[row]-col[k] == row-k)
 //행과 열의 차이가 같다면 대각선임으로 0리턴..
 
 ```
- 3. N-QueenCode(https://github.com/rim0621/Rookie/blob/master/9663_NQueen.cpp)
+ 3. [N-QueenCode](https://github.com/rim0621/Rookie/blob/master/9663_NQueen.cpp)
 #### knight's Tour
  - 임의의 위치에 놓여진 기사말을 움직여서 64개의 격자를 모두 방문할 수 있는 수. 다시 방문X
  - 갈 수 있는 위치 : (i-2,j+1),(i-1,j+2),(i+1,j+2),(i+2,j+1),(i+2,j-1),(i+1,j-2),(i-1,j-2),(i-2,j-1) 8방향
