@@ -31,5 +31,5 @@ for(int i=0;i<size+1;i++)
 
 2. 들어온 스트링을 1에서 만든 행렬대로 따라가서 마지막 스테이트가 나오면 매칭!!
 * [code](https://github.com/rim0621/Algorithm-study/tree/master/9.DFA/DFA.cpp)
-
+* O(M*단어종류수)
 ### KMP algorithm (Knuth-Morris-Pratt)
