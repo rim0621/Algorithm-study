@@ -36,11 +36,13 @@ for(int i=0;i<size+1;i++)
 * 롤백을 피하자!!
 * 한칸씩옴기면(브로트포스) 오래걸리니깐 어느정도 매칭되는 것을 미리 알고 글로가자!!
 1. Maximum Overlap of a Prefix 구하기.
- - 가장긴 proper suffix는 prefix of the prefix 와 같다!(ex AAAA => AAA, AABB => null)
- - 미스매치시 이부분을 다시 사용한다.
- - AAABBAAACB
- - AAAC  //B-C 미스매치
- -      AAAC
+  * 가장긴 proper suffix는 prefix of the prefix 와 같다!(ex AAAA => AAA, AABB => null)
+  미스매치시 이부분을 다시 사용한다.
+```
+  AAABBAAACB
+  AAAC  //B-C 	미스매치
+       AAAC
+```
 2. failure function
  * 패턴의 prefix의 길이!
 ```
@@ -52,6 +54,7 @@ i=4  **aa**b**aa** // k=2
 i=5  **aab****aab** // k=3
 
 ```
+ 
  * fail[] 구하기
 ```
   aabaabac	0=0으로 세팅
@@ -71,10 +74,11 @@ i=5  **aab****aab** // k=3
 ```
  
 3. [code](https://github.com/rim0621/Algorithm-study/tree/master/9.StringMatch/KMP.cpp)
- - 스트링과 패턴이 매치과 된다면 둘다 한칸씩 옮긴다.
- - 매칭이 안된다면 미리구한 fail에 **j-1**의 k값(길이)를 j로..
- - 다시 매칭... (첫번째, 두번째 반복)
-
+ * 스트링과 패턴이 매치과 된다면 둘다 한칸씩 옮긴다.
+ * 매칭이 안된다면 미리구한 fail에 **j-1**의 k값(길이)를 j로..
+ * 다시 매칭... (첫번째, 두번째 반복)
+ * getFail = **O(M)**
+ * kmp     = **O(N)**
 
 
 
