@@ -48,22 +48,22 @@ for(int i=0;i<size+1;i++)
  - bab // k=1
  - baba // k=2
  * fail[] 구하기
- - aabaabac	0=0으로 세팅
- -  aabaabac	1=1, a하겹침 (i++,j++ 다음 꺼 안겹침 j=j-1의 요소로 채움)
+```
+  aabaabac	0=0으로 세팅
+   aabaabac	1=1, a하겹침 (i++,j++ 다음 꺼 안겹침 j=j-1의 요소로 채움)
 
- - aabaabac
- -   aabaabac	2=0
+  aabaabac
+    aabaabac	2=0
 
- - aabaabac
- -    aabaabac    3=1, 하나겹침 , 4=2 하나 또 겹침  5=3 , 6=4, 7은 안겹침 j=(j-1=3)요소
+  aabaabac
+     aabaabac    3=1, 하나겹침 , 4=2 하나 또 겹침  5=3 , 6=4, 7은 안겹침 j=(j-1=3)요소
 
- - aabaabac		//j-1(3)의 요소가1 이므로 aa에 i번을 마춤.
- -       aabaabac  또 아니므로j-1(1-1)=0의 요소 0 에 i번을 마춤
+  aabaabac		//j-1(3)의 요소가1 이므로 aa에 i번을 마춤.
+        aabaabac  또 아니므로j-1(1-1)=0의 요소 0 에 i번을 마춤
  
- - aabaabac
- -        aabaabac 아님.. 7번짼 0, i++;
-
- -**fail 완성**
+  aabaabac
+         aabaabac 아님.. 7번짼 0, i++;
+```
  
 3. [code](https://github.com/rim0621/Algorithm-study/tree/master/9.StringMatch/KMP.cpp)
  - 스트링과 패턴이 매치과 된다면 둘다 한칸씩 옮긴다.
