@@ -7,4 +7,4 @@
 ## 5.[Greedy Algorithm](https://github.com/rim0621/Algorithm-study/tree/master/5.Greedy)
 ## 6.[Topological Sorting](https://github.com/rim0621/Algorithm-study/tree/master/6.topological%20sorting)
 ## 7.[Backtracking](https://github.com/rim0621/Algorithm-study/tree/master/7.Backtracking)
-## 9.[String Matching](https://github.com/rim0621/Algorithm-study/tree/master/9.DFA)
+## 9.[String Matching](https://github.com/rim0621/Algorithm-study/tree/master/9.StringMatch)
