@@ -42,11 +42,16 @@ for(int i=0;i<size+1;i++)
  - AAAC  //B-C 미스매치
  -      AAAC
 2. failure function
- - 패턴의 prefix의 길이!
- - b // k=0
- - ba // k=0
- - bab // k=1
- - baba // k=2
+ * 패턴의 prefix의 길이!
+```
+i=0  a // k=0
+i=1  **a****a** // k=1
+i=2  aab // k=0
+i=3  **a**ab**a** // k=1
+i=4  **aa**b**aa** // k=2
+i=5  **aab****aab** // k=3
+
+```
  * fail[] 구하기
 ```
   aabaabac	0=0으로 세팅
