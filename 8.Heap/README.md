@@ -19,6 +19,7 @@
  3. fix heap! 
 
 #### Heap Construction
+* [make_heap](https://github.com/rim0621/Algorithm-study/tree/master/8.Heap/makeHeap.cpp)
 * 완전트리가 힙 순서로 정렬 되있지 않을 때 => fixHeap 
 * fixheap = **2floor(logN)**
 * Heap Construction 만드는 방법

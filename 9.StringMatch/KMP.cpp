@@ -35,14 +35,14 @@ vector<int> kmp(string sentance, string pattern)
   for(int i=0;i<n;i++)
   {
     while(j>0 && sentance[i] != pattern[j])
-	j=pattern[j-1];
-
+	j=fail[j-1];	//	j=pattern[j-1];
+	
     if(sentance[i]==pattern[j])
     {
   	if(j==m-1)	//패턴이랑 길이가 똑같고 다 매칭될때
 	{
 	  ans.push_back(i-j);
-	  j= fail[j];
+	  j= fail[j];		//??
 	}
 	else
 	   j++;
