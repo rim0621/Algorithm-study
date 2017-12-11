@@ -45,7 +45,7 @@ int binCoeff(int n, int k)
 	int i,j;
 	int B[MAX][MAX];
 	for(int i=0;i<=n;i++)
-	{
+	{			//min(i,k) => 2차원 배열의 대각선 아랫 부분
 		for(int j=0;j<=min(i,k);j++)
 		{
 			if(j==0 || j==i)
@@ -113,8 +113,9 @@ void coinExchange(int coins[], int numDiffCoins, int change, int coinsUsed[],int
 	}
 }
 ```
-    * 4 단계 : 최소동전의 집합 계산(recursive)	(?)
+    * 4 단계 : 최소동전의 집합 계산(recursive)
 ```
+// 뽑기
 void reconstruct(int change, int lastCoin[])
 {
 	if(change>0)

@@ -24,6 +24,14 @@ void countCoin(int *coin, int *coinUsed,int *coinLast,int money,int n)
 		coinLast[k]=newCoin;
 	}
 }
+void reconstruct(int money,int *coinLast)
+{
+	if(money>0)
+	{
+		reconstruct(money-coinLast[money], coinLast);
+		printf("%d ",coinLast[money]);
+	}
+}
 
 int main()
 {
@@ -48,6 +56,10 @@ int main()
 	cout<<endl;
 	for(int i=0;i<=money;i++)
 		cout<<coinLast[i]<<" ";
+	cout<<endl;
+
+	cout<<"============동전 확인==============="<<endl;
+	reconstruct(money,coinLast);
 	cout<<endl;
 	return 0;	
 }
