@@ -152,7 +152,7 @@ N[][]의 의미는 무엇인가??
 * [code 백준_9251](https://github.com/rim0621/Rookie/blob/master/9251_LCS.cpp)
 * [code LCS](https://github.com/rim0621/Algorithm-study/tree/master/4.DynamicProgramming/LCS.cpp)
 * LCS 정답 순서 스트링 보기! 
-![Alt text](/img/LCS.png)
+![Alt text](img/LCS.png)
 * 대각 선에서 내려올 때는 재귀식 두번째 경우, 왼쪽에서 또는 위에서 오는 것은 재귀식 마지막 경우
 ```
 #define MAX:_LENGTH 101
