@@ -58,7 +58,7 @@ int binCoeff(int n, int k)
 }
 ```
 ### 동전교환
-* 문제 : 서로 다른 단위의 동전이 주어졌을 때, 거스름돈을 동전의 개수가 최소가 되도록.
+* 문제 : 서로 다른 단위의 동전이 주어졌을 때, 거스름돈을 동전의 개수가 최소 & 그 동전들의 조합.
     - 1원, 5원, 10원, 21원, 25원 (무제한)
     - 거스름 돈 63원 = {21,21,21}
     * 1 단계 : working backward 
@@ -127,6 +127,7 @@ void reconstruct(int change, int lastCoin[])
 ```
 * [code](https://github.com/rim0621/Algorithm-study/tree/master/4.DynamicProgramming/exchangeCoin.cpp)
 ### 동전교환-2
+* 거스름돈을 교환해 주는 동전의 조합의 수!!!(경우의 수)
 * cn 의 동전이 포함된 경우, 포함되지 않는 경우
 * 재귀:
 ```
@@ -139,8 +140,9 @@ N(n,k) = 0 n=0 and k>0	//bc
 	 0 k<'0		//bc
 	 N[n-1][k]+N[n][k-cn]	//recursive step
 
-N[][]의 의미는 무엇인가??
+N[][]는 가능한 경우의 수를 넣은 듯
 ```
+* [code](https://github.com/rim0621/Algorithm-study/tree/master/4.DynamicProgramming/exchangeCoin.cpp)
 
 ### LCS 
 * Longest Common Subsequence 재귀

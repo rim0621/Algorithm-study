@@ -32,7 +32,42 @@ void reconstruct(int money,int *coinLast)
 		printf("%d ",coinLast[money]);
 	}
 }
+int countCoinExchange(int *coin,int numDiffCoins,int change)
+{	//numD=동전종류  change= 거스름돈
+	int numComb;
+	int N[101][1001];
+	for(int i=numDiffCoins;i>0;i--)
+		coin[i]=coin[i-1];
 
+	coin[0]=0;
+	memset(N,0,sizeof(N));
+	for(int i=1;i<=numDiffCoins;i++)
+		N[i][0]=1;
+	for(int i=1;i<change;i++)
+		N[0][i]=0;
+	for(int i=1;i<=numDiffCoins;i++)
+	{
+		for(int j=1;j<=change;j++)
+		{
+			if(j-coin[i]<0)		//???
+				numComb=0;
+			else
+				numComb=N[i][j-coin[i]];
+			N[i][j]=N[i-1][j]+numComb; //??
+		}
+	}
+	for(int i=0;i<=numDiffCoins;i++)
+	{
+		for(int j=0;j<=change;j++)
+		{
+			cout<<N[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	
+	return N[numDiffCoins][change];
+
+}
 int main()
 {
 	int n;
@@ -61,5 +96,8 @@ int main()
 	cout<<"============동전 확인==============="<<endl;
 	reconstruct(money,coinLast);
 	cout<<endl;
+	cout<<"==============경우의수=============="<<endl;
+	cout<<"개수:"<<countCoinExchange(coin, n,money)<<endl;
+	
 	return 0;	
 }

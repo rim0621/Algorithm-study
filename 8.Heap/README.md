@@ -28,6 +28,7 @@
 * insert하는 것보다 complete tree를 construct 하는 것이 더 빠름.
  - 삽입은 밑에 삽입되고 위로 위치를 찾아 올라감
  - 완전 트리를 컨스트럭트 하면 floor(k/2)부터 하니깐 요소가 움직이는 수가 훨씬 적음!!
+* [min_heap && fixheap](https://github.com/rim0621/Algorithm-study/tree/master/8.Heap/fixHeap.cpp)
 #### Heap Sorting
 1. 방법1) delete 민하고 다른 배열에 넣어서 소팅하는 방법(결국 배열 두개가 필요) - 오름차순할때
 2. 방법2) delete 맥스하고 다른 배열이 아닌 마지막 루트를 올렸으니 그 자리에 넣어서..(점점fixheap하는 배열크기가 줄어들지)-오름차순

@@ -29,6 +29,14 @@ int lengthLCS(string s,string t, int m, int n)
 			}
 		}
 	}
+	for(int i=0;i<=m;i++)
+	{
+		for(int j=0;j<=n;j++)
+		{
+			cout<<L[i][j]<<" ";
+		}
+		cout<<endl;
+	}
 	return L[m][n];
 }
 void printLCS(string s,string t,int m,int n)
@@ -49,6 +57,12 @@ int main()
 {
 	string s,t;
 	cin>> s>> t;
+	if(s.size()>t.size())
+	{
+		string tmp=s;
+		s=t;
+		t=tmp;
+	}
 	int length=lengthLCS(s,t,s.size(),t.size());
 	cout<<"최대 길이: "<<length<<endl;
 	cout<<"추적: ";
