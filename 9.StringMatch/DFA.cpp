@@ -46,7 +46,7 @@ int findDFA(int msize,int nsize)
 
 
   int tmp=0;
-  for(int i=0;i<msize;i++)
+  for(int i=0;i<msize+1;i++)
   {
     	if(tmp==nsize)
      	{
@@ -54,18 +54,21 @@ int findDFA(int msize,int nsize)
      	}
         int a=DFA[wordToInt(input[i])][tmp];    //word, state
 	tmp=a;
+	cout<<a<<endl;
   }
 	cout<<endl;
 	return 0;
 }
 int main()
 {
+	cout<<"pattern n:";
 	int n;
 	cin>>n;
 	for(int i=0;i<n;i++)
 	{
 		cin>>p[i];
 	}
+	cout<<"string: ";
 	int m;
 	cin>>m;
 	for(int i=0;i<m;i++)

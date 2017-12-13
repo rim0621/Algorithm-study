@@ -55,7 +55,9 @@ int main()
 {
   string sentance;
   string pattern;
+  cout<<"문장:";
   cin>>  sentance;
+  cout<<"패턴:";
   cin>> pattern;
   vector<int> ans=kmp(sentance,pattern);
   for(int i=0;i<ans.size();i++)

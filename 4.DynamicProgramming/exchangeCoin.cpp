@@ -41,7 +41,7 @@ int countCoinExchange(int *coin,int numDiffCoins,int change)
 
 	coin[0]=0;
 	memset(N,0,sizeof(N));
-	for(int i=1;i<=numDiffCoins;i++)
+	for(int i=0;i<=numDiffCoins;i++)
 		N[i][0]=1;
 	for(int i=1;i<change;i++)
 		N[0][i]=0;

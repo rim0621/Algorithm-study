@@ -37,12 +37,12 @@ void fixheap(int *input,int n,int j)
 
 int main()
 {
-	int n=11;
-	int input[11]={0,3,5,2,7,11,6,8,14,1,4};
+	int n=12;
+	int input[12]={0,13,5,2,7,11,6,8,14,1,4,3};
 	for(int i=1;i<n;i++)
 		cout<<input[i]<<" ";
 	cout<<endl;
-	for(int i=n/2;i>0;i--)
+	for(int i=(n-1)/2;i>0;i--)
 	{
 		fixheap(input,n,i);
 	}
