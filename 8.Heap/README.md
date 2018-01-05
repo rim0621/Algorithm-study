@@ -1,4 +1,5 @@
 # Heap sort
+* [코드링크](https://github.com/rim0621/Algorithm-study)
 * insert
 * delete min(max)
 * Complete Binary Tree
@@ -7,20 +8,21 @@
  - 레밸의 맨 왼쪽은 2^h
  - 루트에서 마지막 노드 = floor(logN)
  - 2^h ~ 2^(h+1)-1개 노드
- - 그 노드의 부모는  floor(k/2) 
+ - 그 노드의 부모는  floor(k/2)
  - 그 노드의 왼쪽 자식 2k, 오른쪽 2k+1
+
 #### Binary Heap
-* Binary Heap 
+* Binary Heap
 - 특징 : 컴플릿트 바이너러 / min heap(부모는 자식보다 작거나 같다.) / max heap(부모는 자식보다 크거나 같다.)
-* insert : 마지막 노드에 추가 하고 위치로 GO! (fix heap) 
-* delete(min/max) : 루트만 지울 수 있다. 
+* insert : 마지막 노드에 추가 하고 위치로 GO! (fix heap)
+* delete(min/max) : 루트만 지울 수 있다.
  1. 루트를 삭제
- 2. 마지막 노드를 루트로 올림. 
- 3. fix heap! 
+ 2. 마지막 노드를 루트로 올림.
+ 3. fix heap!
 
 #### Heap Construction
 * [make_heap](https://github.com/rim0621/Algorithm-study/tree/master/8.Heap/makeHeap.cpp)
-* 완전트리가 힙 순서로 정렬 되있지 않을 때 => fixHeap 
+* 완전트리가 힙 순서로 정렬 되있지 않을 때 => fixHeap
 * fixheap = **2floor(logN)**
 * Heap Construction 만드는 방법
  - 방법1 : 루트를 기준으로 윈쪽,오른쪽으로 리컬시브하게 들어간 후 fixheap =

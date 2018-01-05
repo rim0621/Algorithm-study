@@ -1,5 +1,7 @@
-# 카탈란 수 
+# 카탈란 수
+[코드링크](https://github.com/rim0621/Algorithm-study)
 * 쌍을 이루는 것들을 나열하는 모든 경우의 수.
+
 #### 카탈란 수열 문제들
 * 모든 괄호 짝
 * 산 만들기
@@ -13,10 +15,9 @@
 * c2= C0C1+C1C0
 * c3= C0C2+C1C1+C0C2 ...
 * Cn= Σ Ci*Cn-1-i (i는 0~n-1)
+
 ##### Code
 ```C++
-#include<bits/stdc++.h>
-using namespace std;
 void PrintBracket(bool *state,int size)
 {
 	for(int i=1;i<size;i++)
@@ -39,7 +40,7 @@ void Bracket(bool *state, int size,int start, int end)
 		PrintBracket(state,size);
 		return ;
 	}
-	if( start>0){
+	if( start>0){				//괄호가 먼저 열리니깐 열림이 많은 것부터 뽑는다.
 		state[size]=true;
 		Bracket(state,size+1,start-1,end+1);
 	}

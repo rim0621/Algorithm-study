@@ -12,33 +12,33 @@
 ----
 1. Divide & Conquer
     * 분할정복기법 알고리즘의 정확성 증명 (수학적 귀납법 사용)
-    * 분할정복기법 알고리즘의 시간복잡도 계산 
+    * 분할정복기법 알고리즘의 시간복잡도 계산
 ### Tromino 타일 채우기
 - 문제 : 한 모퉁이가 없는 2X2로 타일로 채운다. (전체는 N*N-한모퉁이)
 - 해결 : 가운데에 타일로 채우고 4개로 분할하면 4개가 다 같은 모양이다. => 반복
-<pre><code>
-</code></pre>
+
 ### Finding Max
-- ex) 5 7 1 3 4 | 9 2 0 8 6 => 7 , 9 => 9 
-<pre><code>
+- ex) 5 7 1 3 4 | 9 2 0 8 6 => 7 , 9 => 9
+```C++
 // a[],left=0,right=a.size()
 int recurMax(int a[],int left,int right)
 {
-	
+
 	if(left==right)
 	{
 	  return a[left];
 	}
 	else
 	{
-	  return max(recurMax(a,left,(left+right)/2),recurMax(a,((left+right)/2)+1,right); 
-			//왼쪽으로				//오른쪽으로	
+	  return max(recurMax(a,left,(left+right)/2),recurMax(a,((left+right)/2)+1,right);
+			//왼쪽으로				//오른쪽으로
 	}
 }
 // T(n)=n-1  (n아닌가?)
-</code></pre>
+```
+
 ### Binary Search
-<pre><code>
+```C++
 int binarySearch(int a[],int left,int right,int value)
 {
   int mid;
@@ -52,22 +52,19 @@ int binarySearch(int a[],int left,int right,int value)
       return mid;
     }
     else if(a[mid]>value)
-    	return binarySearch(a,left,mid-1,value);	//비교 -> 분할 -> 비교 -> 분할 ... 
+    	return binarySearch(a,left,mid-1,value);	//비교 -> 분할 -> 비교 -> 분할 ...
     else
 	return binarySearch(a,mid+1,right,value);
   }
 }
 // O(logn)
-</code></pre>
+```
 
-### Find Peak value
-<pre><code>
-</code></pre>
 ### Merge Sorting
 1. Divide : 배열을 각각 n/2 개의 데이터로 만드러진 두개의 부분배열로 분할
 2. Conquer : 나누어진 부분 배열에 대하여 재귀적으로 합병 정렬을 수행
 3. Combine : 두개의 이미 정렬된 부분 배열을 통합
-<pre><code>
+```C++
 #define MAX_SIZE 100
 void merge(int a[],int low,int mid,int high)	//합침 combine
 {
@@ -91,7 +88,7 @@ void merge(int a[],int low,int mid,int high)	//합침 combine
 	while(j<=high)
 		 a[k++]=tmp[j++];
 }
-void mergeSort(int v[],int low,int high)	
+void mergeSort(int v[],int low,int high)
 {
 	int mid;
 	if(low==high)
@@ -106,15 +103,16 @@ void main()
 	int i,v[MAX_SIZE]={5,6,8,1,4,7,9,10};
 	mergeSort(v,0,8);
 }
-</code></pre>
+```
+
 ### Quick Sorting
 
 1. 누군가 한 곳을 뽑아서 피벗을 잡고
 2. 다음껄 뽑아 피벗보다 크면 오른 작으면 왼쪽 (파티션)-Divide // 마지막에 pivot이랑 j있는거랑 스왑
-    * 피벗, j,i(j+1),  i 갈리키는게 피벗보다 크면 i++// 작으면 j++ 하고 스왑 후 i++	
+    * 피벗, j,i(j+1),  i 갈리키는게 피벗보다 크면 i++// 작으면 j++ 하고 스왑 후 i++
 3. 왼쪽 그룹(하나줄이면서) 오른쪽 그룹(하나 올리면서)  퀵소팅 ㄲ (리컬시브)
     * combine 작업 필요 없다. =>
-<pre><code>
+```C++
 int partition(int a[],int low,int high)
 {
 	int i,j;	//j는 맨처음 i는 그 다음꺼
@@ -139,7 +137,7 @@ void quickSort(int v[],int low,int high)
       {
 	int pos=partition(v,low,high);
 	quickSort(v,low,pos-1);
-	quickSort(v,pos+1,high);	
+	quickSort(v,pos+1,high);
       }
 }
 void main()
@@ -147,7 +145,7 @@ void main()
 	int i, v[]={3,6,1,5,2,9,7};
 	quickSort(v,0,v.size()-1);
 }
-</code></pre>	
+```
     * 미리 정렬된 데이터가 입력되는 것이 가장 worst cast 이다.
     * 결국 피벗이 가장 중간수가 잡히면 효율적이다.
 
@@ -155,15 +153,17 @@ void main()
 
 * 빅오 표기법 속에 숨겨진 큌 정렬의 상수항이 꽤 괜찮기 때문에 퀵 정렬을 선호한다. 실생활에서 퀵정령은 머지정렬보다 성능이 좋으며, 선택 정렬과 삽입 정렬보다 훨씬 좋다. 퀵소트는 머지소트처럼 추가 저글링이 없다.
 * 머지는 항상 이동하고, 퀵은 경우에 따라 이동하기 때문에 퀵이 더 좋다.
-		   퀵			   머지
-* divide	파티션,피벗,O(n)		간단,반으로 나눈다.
-* conquer	재귀			재귀
-* combine	필요없음		머지수행,conquer단계에서 정렬된 두 배열을 병합 O(n)
 
+```C++
+		       퀵			              머지
+* divide	파티션,피벗,O(n)	        간단,반으로 나눈다.
+* conquer	재귀		              	재귀
+* combine	필요없음		    머지수행,conquer단계에서 정렬된 두 배열을 병합 O(n)
+```
 #### Bolts & Nuts
 * 문제 : 크기가 모두 다른 n개의 너트와 그에 맞는 볼트가 있다. n개의 볼트-너트 조합을 만들어라.
     - 너트 끼리는 비교 불가, 너트-> 볼트를 확인해서 큰지 작은지 맞는지를 판반 (볼트도->너트)
-* 해결 : 
+* 해결 :
     1) 볼트 하나 잡고 너트와 다들 껴본후 맞은거 를 찾음
     2) 찾은 너트와 남어지 볼트를 비교해서 큰, 작은 으로 나눔
     3) 찾은 볼트로 너트 도 그룹을 나눔
@@ -172,7 +172,7 @@ void main()
 #### 카라츠바의 빠른 곱셈 알고리즘
 * 1234 * 5678
 
-<pre><code>
+```C++
 // 곱 알고리즘
 
 void normalize(vector<'int>& num){
@@ -200,8 +200,8 @@ vector<'int> multiply(const vector<'int>& a, const vector<'int>& b){
 	normalize(c);
 	return c;
 }
-</code></pre>
-<pre><code>
+```
+```C++
 
 B = 10 이라하고, m = 2 라 하자. 1234와 5678의 곱을 구하고 싶으면,
 
@@ -238,7 +238,8 @@ vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
 	addTo(ret,z2,half+half);
 	return ret;
 }
-</code></pre>
+```
+
 #### qaudtreeMirror.cpp  - ????
 * 베이스 케이스 :  w,b 이면 칠하고 종료
 	       : x 이면 decompress로 나눔(재귀)
@@ -257,23 +258,3 @@ vector<'int> karatsuba(const vector<'int>& a,const vector<'int>& b){
 * 문제 : 모두다 포옹한 횟수. 남-남은 악수로
 * 풀이 : (1.큐를 사용)
 	 2. 곱샘처럼.. 여자 0 남자 1 하면 남-남 일떄만 1 나머지는 0 이 나옴
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

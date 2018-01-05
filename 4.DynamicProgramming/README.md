@@ -2,7 +2,7 @@
 1. 분할정복비법처럼 작은 문제들로 나누어 각각 해답을 찾고 원래 문제의 해답을 계산
 2. 하지만 중복이 발생하여 반복연산이 많아 수행시간이 길다. => 메모리제이션으로 해결(반복연산 제거)
     * ex) 최적화 문제(최대,최소) : working backward기법 사용 (top-down 방법으로)-> 재귀식으로 정의 (중복계산발생)-> bottom-up 방식 -> 저장할 테이블을 생성 [앞 1~3번째 까지는 최적값을 계산하는 과정이고, 마지막은 최적해답을 계산하는 단계]
-### factorial 
+### factorial
 ```
 //많은 중복연산을 함. n=100
 int f(int n)		//메모리제이션 - 미리저장
@@ -35,8 +35,9 @@ int fib(int n)
     * 1 단계 : working backward => 2xN의 마지막을 채운다. 1) 한개로 채우면(n-1남음) 2) 두개로 채우면(n-2남음)
     * 2 단계 : 재귀 => c(n) = c(n-1)+c(n-2)
       - c(n) = 1 (n=1), 2 (n=2) , c(n-1)+c(n-2) (n>2)
+
 ### 이항계수
-```
+```C++
 B[n][k])=  1   k=0 or k=n
 	B[n-1][k-1]+B[n-1][k] 0<k<n
 
@@ -61,7 +62,7 @@ int binCoeff(int n, int k)
 * 문제 : 서로 다른 단위의 동전이 주어졌을 때, 거스름돈을 동전의 개수가 최소 & 그 동전들의 조합.
     - 1원, 5원, 10원, 21원, 25원 (무제한)
     - 거스름 돈 63원 = {21,21,21}
-    * 1 단계 : working backward 
+    * 1 단계 : working backward
 ```
       - 63-1 = 62
       - 63-5 = 58
@@ -132,8 +133,8 @@ void reconstruct(int change, int lastCoin[])
 * 재귀:
 ```
 N(n,k)=N(n-1,k)+N(n,k-cn)
-       cn 포함안됨 / cn 포함 
-	
+       cn 포함안됨 / cn 포함
+
 n가지 동전 종류, k거스름돈
 N(n,k) = 0 n=0 and k>0	//bc
 	 1 k=0		//bc
@@ -144,9 +145,9 @@ N[][]는 가능한 경우의 수를 넣은 듯
 ```
 * [code](https://github.com/rim0621/Algorithm-study/tree/master/4.DynamicProgramming/exchangeCoin.cpp)
 
-### LCS 
+### LCS
 * Longest Common Subsequence 재귀
-```
+```C++
 	- L(m,n) =
 		 	 0 			(n=0 or m=0)
 	 	 	 L(m-1,n-1)+1		(m,n>0 and sm=tn)
@@ -154,14 +155,14 @@ N[][]는 가능한 경우의 수를 넣은 듯
 ```
 * [code 백준_9251](https://github.com/rim0621/Rookie/blob/master/9251_LCS.cpp)
 * [code LCS](https://github.com/rim0621/Algorithm-study/tree/master/4.DynamicProgramming/LCS.cpp)
-* LCS 정답 순서 스트링 보기! 
+* LCS 정답 순서 스트링 보기!
 ![Alt text](img/LCS.png)
 * 대각 선에서 내려올 때는 재귀식 두번째 경우, 왼쪽에서 또는 위에서 오는 것은 재귀식 마지막 경우
-```
-#define MAX:_LENGTH 101
-#define MAX(a,b) ((a)>(b)?(a):(b))
+```C++
+ MAX:_LENGTH 101
+ MAX(a,b) ((a)>(b)?(a):(b))
 int L[MAX_LENGTH][MAX_LENGTH], S[MAX_LENGTH][MAX_LENGTH]; //0으로 초기화
-// L[][]은 sm 그리고 tm의 최장길이를 저장... S[][]는 LCS를 구하기 위한 저장 정보... 
+// L[][]은 sm 그리고 tm의 최장길이를 저장... S[][]는 LCS를 구하기 위한 저장 정보...
 int lengthLCS(char s[],char t[], int m, int n)
 {
 	int i,j;
@@ -178,7 +179,7 @@ int lengthLCS(char s[],char t[], int m, int n)
 			{
 				L[i][j]=MAX(L[i][j-1],L[i-1][j]);
 				if(L[i][j]==L[i][j-1])
-					S[i][j]=1;	//위에서	
+					S[i][j]=1;	//위에서
 				else
 					S[i][j]=2;	옆에서
 			}
@@ -244,15 +245,18 @@ int jump2(int y,int x)
 }
 ```
 
-#### 와일드카드 Wildcard.cpp , WildcardDynamic.cpp 
+#### 와일드카드 Wildcard.cpp , WildcardDynamic.cpp
 * 문제
-	- *=0글자 이상의 어떤 문자열에도 대응
+	- 별=0글자 이상의 어떤 문자열에도 대응
 	- ?=한 글자만 대응
+
 ## 최적문제
 * 직관적이지 않은 경우에는 대개 귀류법 혹은 대우를 이용하여 증명한다.
+
 #### 최대 증가 부분 수열
 * 완전 탐색 방법 : 숫자 하나씩으로 조각낸 뒤, 한 조각에서 숫자 하나씩을 선택하는 완전 탐색. 길이구하기 -> 집합의 증가 부분 수열을 만든 뒤 가장 긴것 반환.
-<pre><code>
+
+```C++```
 int lis(const vector<'int>& A)
 	if(A.empty()) return 0;
 	int ret=0;
@@ -264,21 +268,23 @@ int lis(const vector<'int>& A)
 		 	if(A[i]<'A[j])
 		 	{
 		 		B.push_back(A[j]);
-		 	}	
+		 	}
 		 }
 		 ret=max(ret,1+lis(B));
 	}
 	return ret;
 
-</code></pre>
+```
+
 * 동적계획법
-<pre><code>
+
+```C++
 int n;
 int cache[100],S[100];
 int lis2(int start){
 	int& ret = cache[start];
 	if(ret!=-1)return ret;
-	
+
 	ret=1;
 	for(int next=start+1; next<'n;++next)
 	{
@@ -287,25 +293,4 @@ int lis2(int start){
 	}
 	return ret;
 
-</code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
