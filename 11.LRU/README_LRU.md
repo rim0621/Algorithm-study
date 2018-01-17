@@ -44,6 +44,8 @@
 
 [깃허브 링크](https://github.com/rim0621/Algorithm-study/tree/master/11.LRU/LRU.cpp)
 
+이 코드는 그냥 제가 문제를 보고 구현한 것입니다. 다른 분들 껄보니 링크드리스트를 사용해서 풀었던데 저는 제가 마음대로 푼것입니다. 다른 코드를 보실려면 구글에 치시면 많이 나옵니다.
+
 ## 결과
 
 ![img](./result.png)

@@ -8,9 +8,9 @@ int d[10000];
 int main()
 {	
 	int n;//node_c
-	cin>> n;
+	cout<<"number of node: ";	cin>> n;
 	int c;
-	cin>>c;
+	cout<<"number of egde: ";	cin>>c;
 	cout<<"---"<<endl;
 	for(int i=0;i<c;i++)
 	{
@@ -65,13 +65,14 @@ int main()
 		for(deque<int>::size_type i=0;i<q.size();++i)
 			cout<<q[i]<<" ";
 		cout<<endl;
+	
 		s.insert(node);
 		q.erase(find(q.begin(),q.end(),node));	
 			        
 		for(deque<int>::size_type i=0;i<q.size();++i)
         	{
                 	d[q[i]]=min(d[q[i]],d[node]+m[node][q[i]]);
-        	}
+		}
 		for(deque<int>::size_type i=0;i<q.size();++i)
 		{
                         if(min_c>d[q[i]])
@@ -82,6 +83,7 @@ int main()
 
 		}
 	}
+		//결과확인
 	for(set<int>::iterator iter=s.begin();iter!=s.end();++iter)
 		cout<<*iter<<" ";
 	cout<<endl;
