@@ -32,6 +32,10 @@
 
 #### 코드
 
+* [깃허브 코드링크](https://github.com/rim0621/Algorithm-study/tree/master/12.Dijkstra)
+
+* [티스토리 알고리즘](http://rim0621.tistory.com/category/SW/Algorithm)
+
 ```c++
 void Dijkstra(deque<int> order,int n)
 {
@@ -51,7 +55,8 @@ void Dijkstra(deque<int> order,int n)
                 //최소값 노드
                 int min_Node,min_Value=INF;
 
-                q.erase(find(q.begin(),q.end(),selectNode)); // 한번 썻던 노드는 다시 않함으로 삭제
+                q.erase(find(q.begin(),q.end(),selectNode));
+                // 한번 썻던 노드는 다시 않함으로 삭제
 
                 // 최소구하기
                 for(deque<int>::size_type i=0;i<q.size();++i)
